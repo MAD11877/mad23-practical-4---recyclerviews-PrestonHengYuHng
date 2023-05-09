@@ -1,15 +1,19 @@
 package sg.edu.np.mad.madpractical;
 
+import android.widget.ImageView;
+
 public class UserTest {
     public String Name;
     public String Description;
     public int Id;
+    public int Img;
     public static boolean Followed;
 
-    public UserTest(String name, String description, int id, boolean followed) {
+    public UserTest(String name, String description, int id, int img, boolean followed) {
         Name = name;
         Description = description;
         Id = id;
+        Img = img;
         Followed = followed;
     }
 
@@ -35,6 +39,14 @@ public class UserTest {
 
     public void setId(int id) {
         Id = id;
+    }
+
+    public int getImg() {
+        return Img;
+    }
+
+    public void setImg(int img) {
+        Img = img;
     }
 
     public static boolean isFollowed() {
