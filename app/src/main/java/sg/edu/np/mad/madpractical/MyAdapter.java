@@ -15,19 +15,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.practical4.R;
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
-    public Context context;
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+    //public Context context;  // <<<=====
     public List<UserTest> users;
 
-    public MyAdapter(Context context, List<UserTest> users) {
-        this.context = context;
+//    public MyAdapter(Context context, List<UserTest> users) {
+//        this.context = context;
+//        this.users = users;
+//    }
+
+    public MyAdapter(List<UserTest> users) {
         this.users = users;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.user_view, parent, false));
+        //return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.user_view, parent, false));
+        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.user_view, parent, false));
     }
 
     @Override

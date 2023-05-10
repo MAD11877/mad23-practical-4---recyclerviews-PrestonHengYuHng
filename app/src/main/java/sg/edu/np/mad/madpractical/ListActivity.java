@@ -50,9 +50,8 @@ public class ListActivity extends AppCompatActivity{
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),userList));
-
-
+        //recyclerView.setAdapter(new MyAdapter(getApplicationContext(),userList));
+        recyclerView.setAdapter(new MyAdapter(userList)); // <<<=====
 
     }
 
