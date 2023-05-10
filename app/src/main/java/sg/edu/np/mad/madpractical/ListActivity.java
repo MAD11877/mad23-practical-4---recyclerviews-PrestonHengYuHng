@@ -52,7 +52,6 @@ public class ListActivity extends AppCompatActivity{
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //recyclerView.setAdapter(new MyAdapter(getApplicationContext(),userList));
         recyclerView.setAdapter(new MyAdapter(userList)); // <<<=====
-
     }
 
 }
