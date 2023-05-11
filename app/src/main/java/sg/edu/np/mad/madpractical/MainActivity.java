@@ -37,11 +37,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // get Random generated number from ListActivity to change the text
-        TextView tv = findViewById(R.id.editTextText);
+        // get name from MyAdapter
+        TextView name = findViewById(R.id.editTextText);
         Intent i = getIntent();
-        int s1 = i.getIntExtra("Random Number", 0);
-        tv.setText("MAD " + s1);
+        String s1 = i.getStringExtra("name");
+        name.setText(s1);
+
+        //get description from MyAdapter
+        TextView desc = findViewById(R.id.textView);
+        String s2 = i.getStringExtra("desc");
+        desc.setText("Description: " + s2);
 
 
         // Operations when message button is clicked -> Go into message group

@@ -2,6 +2,7 @@ package sg.edu.np.mad.madpractical;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     //public Context context;  // <<<=====
+    private static final int nameEndWith7 = 0;
+    private static final int nameNoEndWith7 = 1;
     public List<UserTest> users;
 
 //    public MyAdapter(Context context, List<UserTest> users) {
@@ -32,7 +35,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.user_view, parent, false));
-        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.user_view, parent, false));
+
+        if (viewType == nameEndWith7){
+            return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.user_view_2, parent, false));
+        }
+        else{
+            return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.user_view, parent, false));
+        }
+
     }
 
     @Override
@@ -73,6 +83,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public int getItemCount() {
         return users.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        String userName = users.get(position).getName();
+        char lastDigit = userName.charAt(userName.length() - 1);
+        if (lastDigit == '7') {
+            return nameEndWith7;
+        } else {
+            return nameNoEndWith7;
+        }
     }
 
 
